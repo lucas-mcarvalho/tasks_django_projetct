@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Tarefas</title>
+</head>
+<body>
+    <h1>Tarefas</h1>
+
+    <form method="get">
+        <input type="search" name="pesquisa" value="{{ request.GET.pesquisa }}" placeholder="Pesquisar">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <p><a href="{% url 'criar-task' %}">Nova tarefa</a></p>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.titulo }}</strong>
+                - {{ task.get_status_display }}
+                - {{ task.get_prioridade_display }}
+                <a href="{% url 'editar-task' task.pk %}">Editar</a>
+                <a href="{% url 'deletar-task' task.pk %}">Deletar</a>
+            </li>
+        {% empty %}
+            <li>Nenhuma tarefa cadastrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

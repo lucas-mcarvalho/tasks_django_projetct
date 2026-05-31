@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Nova tarefa</title>
+</head>
+<body>
+    <h1>Nova tarefa</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    <p><a href="{% url 'listar-tasks' %}">Voltar</a></p>
+</body>
+</html>

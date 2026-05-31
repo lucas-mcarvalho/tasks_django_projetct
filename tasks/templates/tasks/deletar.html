@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Deletar tarefa</title>
+</head>
+<body>
+    <h1>Deletar tarefa</h1>
+
+    <p>Tem certeza que deseja deletar "{{ object }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+
+    <p><a href="{% url 'listar-tasks' %}">Voltar</a></p>
+</body>
+</html>
